@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setup GraphQL Proxy</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div>
+      <form onsubmit="submitForm(event, '/set-graphql-url', 'url', 'authorization')">
+        <h2>Explore a graphql endpoint</h2>
+        <label for="url">URL:</label>
+        <input type="url" name="url" id="url" required />
+        <label for="authorization">Authorization Header:</label>
+        <input type="text" name="authorization" id="authorization" />
+        <div class="checkbox-container">
+          <input type="checkbox" id="overwrite" name="overwrite" />
+          <label for="overwrite">Update schema if exists</label>
+        </div>
+        <button type="submit">
+          Submit
+          <div class="loading-spinner"></div>
+        </button>
+      </form>
+      
+
+      <form
+        onsubmit="submitForm(event, '/set-prismic-repository', 'repositoryName')"
+        id="prismic"
+      >
+        <h2>Explore a Prismic repository</h2>
+        <label for="repositoryName">Prismic Repository Name:</label>
+        <input type="text" name="repositoryName" id="repositoryName" required />
+        <label for="accessToken">Access Token (if private):</label>
+        <input type="text" name="accessToken" id="accessToken" />
+        <div class="checkbox-container">
+          <input type="checkbox" id="overwrite_prismic" name="overwrite_prismic" />
+          <label for="overwrite_prismic">Update schema if exists</label>
+        </div>
+        <button type="submit">
+          Submit
+          <div class="loading-spinner"></div>
+        </button>
+      </form>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
